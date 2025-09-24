@@ -16,3 +16,22 @@ largest_1992[1,"country"]
 a_c = tibble(
   largest_1992[,c("athletes","country")]
 )
+
+# 7.b.
+countries = c("United States ", "France ", "Germany ", "Russia ", "China ")
+gold_medals_plot = olydata %>%
+  filter(country %in% countries) %>%
+  ggplot(aes(x = year, y = gold, color = country))+
+  geom_line()+
+  geom_point()+
+  labs(
+    title = "Gold Medals Won Over Time by Country",
+    x = "year",
+    y = "Number of Gold Medals",
+    color = "Country"
+  )+
+  scale_x_continuous(breaks = seq(min(olydata$year), max(olydata$year), by = 2)) +
+  theme_minimal()
+gold_medals_plot
+
+
