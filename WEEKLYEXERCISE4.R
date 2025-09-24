@@ -14,3 +14,8 @@ olydata1 = olydata %>%
 country_goldmedals = olydata %>%
   group_by(country) %>%
   summarise(gold_medals = sum(gold,na.rm = TRUE))
+
+# 6.c.
+year_totalmedals = olydata1 %>%
+  group_by(year) %>%
+  summarise(total_by_year = sum(total.medals,na.rm = TRUE))
