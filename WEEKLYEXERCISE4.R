@@ -35,3 +35,23 @@ gold_medals_plot = olydata %>%
 gold_medals_plot
 
 
+library(tidyverse)
+library(ggplot2)
+# 4. 
+# Branch name:main
+
+olydata = read.csv("Olympics.csv")
+# 6.a.
+olydata1 = olydata %>%
+  mutate(total.medals = gold+silver+bronze)
+
+# 6.b.
+country_goldmedals = olydata %>%
+  group_by(country) %>%
+  summarise(gold_medals = sum(gold,na.rm = TRUE))
+
+# 6.c.
+year_totalmedals = olydata1 %>%
+  group_by(year) %>%
+  summarise(total_by_year = sum(total.medals,na.rm = TRUE))
+
